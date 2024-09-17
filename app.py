@@ -12,12 +12,12 @@ from spacy.lang.en import English
 from pinecone import Pinecone, ServerlessSpec
 
 # Retrieve the API keys from environment variables
-COHERE_KEY = os.getenv('COHERE_API_KEY')
-PINECONE_KEY = os.getenv('PINECONE_API_KEY')
+# COHERE_KEY = os.getenv('COHERE_API_KEY')
+# PINECONE_KEY = os.getenv('PINECONE_API_KEY')
 
 # Initialize global variables
-co = cohere.Client('COHERE_KEY')
-pc = Pinecone(api_key='PINECONE_KEY')
+co = cohere.Client('mMJW7g9UDwQCFhtW905hK854aQJPoU13cRevsrvg')
+pc = Pinecone(api_key='bdb5ea29-449c-4e3d-8075-a0898d1b8404')
 index_name = 'cohere-pinecone'
 nlp = English()
 nlp.add_pipe("sentencizer")
