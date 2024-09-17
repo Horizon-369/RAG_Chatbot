@@ -12,12 +12,12 @@ from spacy.lang.en import English
 from pinecone import Pinecone, ServerlessSpec
 
 # Retrieve the API keys from environment variables
-# COHERE_KEY = os.getenv('COHERE_API_KEY')
-# PINECONE_KEY = os.getenv('PINECONE_API_KEY')
+COHERE_KEY = os.getenv('COHERE_API_KEY')
+PINECONE_KEY = os.getenv('PINECONE_API_KEY')
 
 # Initialize global variables
-co = cohere.Client('mMJW7g9UDwQCFhtW905hK854aQJPoU13cRevsrvg')
-pc = Pinecone(api_key='bdb5ea29-449c-4e3d-8075-a0898d1b8404')
+co = cohere.Client('COHERE_KEY')
+pc = Pinecone(api_key='PINECONE_KEY')
 index_name = 'cohere-pinecone'
 nlp = English()
 nlp.add_pipe("sentencizer")
@@ -45,7 +45,7 @@ def split_list(input_list: list, slice_size: int) -> list[list[str]]:
     return [input_list[i:i + slice_size] for i in range(0, len(input_list), slice_size)]
 
 def process_pdf(pdf_path):
-    pages_and_texts = open_and_read_pdf(pdf_path=pdf_path, page_offset=41)
+    pages_and_texts = open_and_read_pdf(pdf_path=pdf_path)
     
     for item in pages_and_texts:
         item["sentences"] = [str(sentence) for sentence in nlp(item["text"]).sents]
