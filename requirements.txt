@@ -1,0 +1,12 @@
+torch
+gradio
+cohere
+numpy
+pandas
+requests
+PyMuPDF
+tqdm
+spacy
+pinecone-client
+accelerate
+bitsandbytes
