@@ -16,8 +16,8 @@ COHERE_KEY = os.getenv('COHERE_API_KEY')
 PINECONE_KEY = os.getenv('PINECONE_API_KEY')
 
 # Initialize global variables
-co = cohere.Client('COHERE_API_KEY')
-pc = Pinecone(api_key='PINECONE_API_KEY')
+co = cohere.Client('COHERE_KEY')
+pc = Pinecone(api_key='PINECONE_KEY')
 index_name = 'cohere-pinecone'
 nlp = English()
 nlp.add_pipe("sentencizer")
