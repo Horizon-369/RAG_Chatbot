@@ -165,7 +165,6 @@ def upload_pdf(file):
     pdf_processed = True
     return result
 
-
 demo = gr.Blocks()
 
 with demo:
