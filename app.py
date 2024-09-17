@@ -156,11 +156,13 @@ def clear_index():
         return f"Error clearing Pinecone index: {str(e)}"
 
 def upload_pdf(file):
+    global pdf_processed
     if file is None:
         return "Please upload a PDF file."
     
     file_path = file.name
     result = process_pdf(file_path)
+    pdf_processed = True
     return result
 
 
