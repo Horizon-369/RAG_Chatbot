@@ -45,7 +45,7 @@ def split_list(input_list: list, slice_size: int) -> list[list[str]]:
     return [input_list[i:i + slice_size] for i in range(0, len(input_list), slice_size)]
 
 def process_pdf(pdf_path):
-    pages_and_texts = open_and_read_pdf(pdf_path=pdf_path)
+    pages_and_texts = open_and_read_pdf(pdf_path=pdf_path, page_offset=41)
     
     for item in pages_and_texts:
         item["sentences"] = [str(sentence) for sentence in nlp(item["text"]).sents]
