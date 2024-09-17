@@ -172,7 +172,7 @@ demo = gr.Blocks()
 
 with demo:
 
-    gr.Markdown("# PDF Chatbot with Multi-Query Support")
+    gr.Markdown("# PDF RAG Chatbot with Multi-Query Support")
 
     gr.Markdown("""
     ## How to use:
