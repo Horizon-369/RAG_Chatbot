@@ -145,8 +145,12 @@ def chatbot(message, history):
     return "\n\n---\n\n".join(results)
 
 def clear_index():
+    global pdf_processed
+    if not pdf_processed:
+        return "Nothing to clear. Please upload and process a PDF first."
     try:
         pc.delete_index(index_name)
+        pdf_processed = False
         return "Pinecone index cleared successfully!"
     except Exception as e:
         return f"Error clearing Pinecone index: {str(e)}"
@@ -171,6 +175,7 @@ with demo:
     1. Upload a PDF and click "Process PDF".
     2. Enter your queries in the chat below.
     3. For multiple queries, separate them with '||'.
+    4. Before Uploading a new PDF please clear index.
     
     Example: What are macronutrients? || What is the role of vitamins?
     """)
@@ -180,7 +185,7 @@ with demo:
             pdf_upload = gr.File(label="Upload PDF", file_types=[".pdf"])
         with gr.Column(scale=1):
             process_button = gr.Button("Process PDF")
-            clear_button = gr.Button("Clear Index")
+            clear_button_2 = gr.Button("Clear Index")
     
     status_output = gr.Textbox(label="Status")
     
@@ -201,9 +206,10 @@ with demo:
         ],
     )
     
-    clear_button = gr.Button("Clear Index")
+    clear_button_1 = gr.Button("Clear Index")
     
     process_button.click(upload_pdf, inputs=[pdf_upload], outputs=[status_output])
-    clear_button.click(clear_index, inputs=None, outputs=[status_output])
+    clear_button_1.click(clear_index, inputs=None, outputs=[status_output])
+    clear_button_2.click(clear_index, inputs=None, outputs=[status_output])
 
 demo.launch()
