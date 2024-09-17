@@ -22,6 +22,9 @@ index_name = 'cohere-pinecone'
 nlp = English()
 nlp.add_pipe("sentencizer")
 
+# Global variable to track if a PDF has been processed
+pdf_processed = False
+
 def text_formatter(text: str) -> str:
     return text.replace("\n", " ").strip()
 
