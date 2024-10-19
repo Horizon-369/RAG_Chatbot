@@ -36,7 +36,7 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/Horizon-369/pdf-chatbot.git
+   git clone https://github.com/Horizon-369/RAG_Chatbot.git
    cd pdf-chatbot
    ```
 
